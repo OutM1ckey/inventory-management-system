@@ -11,4 +11,10 @@ mongoose.connect(DATABASE_URL)
 const app = express();
 app.use(express.json());
 
+const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+
+app.use('/products', productRoutes);
+app.use('/orders', orderRoutes);
+
 module.exports = app;
